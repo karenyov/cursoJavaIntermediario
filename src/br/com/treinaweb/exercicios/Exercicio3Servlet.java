@@ -18,7 +18,7 @@ import javax.servlet.http.HttpServletResponse;
 /**
  * Servlet implementation class Exercicio3Servlet
  */
-@WebServlet("/Exercicio3Servlet")
+@WebServlet(name = "Exercicio3Servlet", urlPatterns = { "/Exercicio3Servlet" })
 public class Exercicio3Servlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -37,18 +37,6 @@ public class Exercicio3Servlet extends HttpServlet {
 		// TODO Auto-generated method stub
 	}
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see javax.servlet.http.HttpServlet#doGet(javax.servlet.http.
-	 * HttpServletRequest, javax.servlet.http.HttpServletResponse)
-	 */
-	@Override
-	protected void doGet(HttpServletRequest request, HttpServletResponse response)
-			throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		super.doGet(request, response);
-	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse
@@ -57,8 +45,6 @@ public class Exercicio3Servlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		doGet(request, response);
-
 		String data = request.getParameter("data");
 		Locale locale = new Locale("pt", "BR");
 		SimpleDateFormat sdfEntrada = new SimpleDateFormat("dd/MM/yyyy", locale);
