@@ -8,10 +8,27 @@
 <title>Insert title here</title>
 </head>
 <body>
+	<%
+		String valorCookie = "";
+		Cookie[] cookies = request.getCookies();
+
+		for (Cookie c : cookies) {
+			if (c.getName().equals("nomeUsuarioLogado")) {
+				valorCookie = c.getValue();
+				break;
+			}
+		}
+
+		if (request.getSession().getAttribute("usuario") == null) {
+			response.sendRedirect("login.jsp");
+		}
+	%>
 	<a href="http://www.google.com.br">Ir ao Google</a> |
 	<a href="http://www.bing.com.br">Ir ao Bing</a> |
 	<a href="http://www.yahoo.com.br">Ir ao Yahoo</a> |
-	<p>Bem-vindo, <%= ((Usuario)config.getServletContext().getAttribute("usuarioLogado")).getNome() %></p>
+	<p>
+		Bem-vindo,
+		<%=valorCookie%></p>
 
 	<hr />
 </body>
