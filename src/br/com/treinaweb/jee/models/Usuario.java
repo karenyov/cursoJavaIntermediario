@@ -1,10 +1,13 @@
 package br.com.treinaweb.jee.models;
 
+import java.io.Serializable;
+
 /**
  * @author Karen 12 de fev de 2018
  */
-public class Usuario {
+public class Usuario implements Serializable{
 
+	private static final long serialVersionUID = -3641377187519320780L;
 	private int id;
 	private String nome;
 	private String nomeUsuario;

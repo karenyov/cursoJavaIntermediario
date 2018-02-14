@@ -46,11 +46,15 @@ public class ServletLogin extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		String nome = request.getParameter("nomeUsuario");
-		String senha = request.getParameter("senha");
+		/*
+		 * String nome = request.getParameter("nomeUsuario"); String senha =
+		 * request.getParameter("senha"); Usuario usuario = new Usuario();
+		 * usuario.setNome(nome); usuario.setSenha(senha);
+		 */
+
+		Usuario usuario = (Usuario) request.getSession().getAttribute("usuario");
 		try {
-			
-			Usuario usuario = UsuarioDAO.autenticar(nome, senha);
+			usuario = UsuarioDAO.autenticar(usuario.getNomeUsuario(), usuario.getSenha());
 			if (usuario != null) {
 				contexto.setAttribute("usuarioLogado", usuario);
 				Cookie cookie = new Cookie("nomeUsuarioLogado", usuario.getNome());
